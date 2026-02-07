@@ -2,8 +2,6 @@ package com.lezhin.webtoonservice.core.api.support.response
 
 import com.lezhin.webtoonservice.core.api.support.error.ApiErrorMessage
 import com.lezhin.webtoonservice.core.api.support.error.ApiErrorType
-import com.lezhin.webtoonservice.core.domain.support.error.DomainErrorMessage
-import com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType
 
 data class ApiResponse<T> private constructor(
     val result: ResultType,
@@ -20,6 +18,9 @@ data class ApiResponse<T> private constructor(
             errorData: Any? = null,
         ): ApiResponse<S> = ApiResponse(ResultType.ERROR, null, ApiErrorMessage(error, errorData))
 
-        fun error(error: DomainErrorType): ApiResponse<Any> = ApiResponse(ResultType.ERROR, null, DomainErrorMessage(error))
+        fun <S> error(
+            code: String,
+            message: String,
+        ): ApiResponse<S> = ApiResponse(ResultType.ERROR, null, ApiErrorMessage(code, message))
     }
 }

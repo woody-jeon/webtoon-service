@@ -5,7 +5,7 @@ data class DomainErrorMessage private constructor(
     val message: String,
 ) {
     constructor(errorType: DomainErrorType) : this(
-        code = errorType.code.name,
+        code = errorType.code,
         message = errorType.message,
     )
 }

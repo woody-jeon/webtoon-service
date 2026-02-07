@@ -7,6 +7,7 @@ enum class DomainErrorCode {
     E4000,
     E5000,
     E6000,
+    E6001,
     E7000,
     E8000,
     E9000,

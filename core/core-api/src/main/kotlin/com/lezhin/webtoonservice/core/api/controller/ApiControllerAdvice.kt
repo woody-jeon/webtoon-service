@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
+import kotlin.code
 
 @RestControllerAdvice
 class ApiControllerAdvice {
@@ -47,24 +48,16 @@ class ApiControllerAdvice {
 
     @ExceptionHandler(CoreDomainException::class)
     fun handleCoreDomainException(e: CoreDomainException): ResponseEntity<ApiResponse<Any>> {
-        log.info("handleCoreDomainException = {}", e.message, e)
-        val httpStatus = mapDomainErrorToHttpStatus(e.errorType)
-        return ResponseEntity(ApiResponse.error(e.errorType), httpStatus)
-    }
-
-    private fun mapDomainErrorToHttpStatus(errorType: com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType): HttpStatus {
-        return when (errorType) {
-            com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType.USER_NOT_FOUND,
-            com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType.EPISODE_NOT_FOUND,
-            -> HttpStatus.NOT_FOUND
-            com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType.ALREADY_PURCHASED -> HttpStatus.CONFLICT
-            com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType.INSUFFICIENT_BALANCE -> HttpStatus.PAYMENT_REQUIRED
-            com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType.EPISODE_NOT_AVAILABLE -> HttpStatus.UNPROCESSABLE_ENTITY
-            com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType.ACCESS_DENIED -> HttpStatus.FORBIDDEN
-            com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType.CONTENT_EXPIRED -> HttpStatus.GONE
-            com.lezhin.webtoonservice.core.domain.support.error.DomainErrorType.PURCHASE_FAILED -> HttpStatus.INTERNAL_SERVER_ERROR
-            else -> HttpStatus.INTERNAL_SERVER_ERROR
+        val errorType = e.errorType
+        when (errorType.status) {
+            200 -> log.info("handleCoreDomainException : {}, code : {}, message : {}", e.message, errorType.code, errorType.message, e)
+            500 -> log.error("handleCoreDomainException : {}, code : {}, message : {}", e.message, errorType.code, errorType.message, e)
+            else -> log.info("handleCoreDomainException : {}, code : {}, message : {}", e.message, errorType.code, errorType.message, e)
         }
+        return ResponseEntity(
+            ApiResponse.error(errorType.code, errorType.message),
+            HttpStatus.valueOf(errorType.status),
+        )
     }
 
     @ExceptionHandler(Exception::class)
