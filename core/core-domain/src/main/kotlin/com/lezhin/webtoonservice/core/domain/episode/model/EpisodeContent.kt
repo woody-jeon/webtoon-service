@@ -1,16 +1,12 @@
 package com.lezhin.webtoonservice.core.domain.episode.model
 
+import com.fasterxml.jackson.databind.JsonNode
 import java.time.LocalDateTime
 
 data class EpisodeContent(
-    val episodeId: Long,
+    val episodeId: EpisodeId,
     val title: String,
-    val contentUrl: String?,
-    val images: List<EpisodeImage>,
+    val thumbnail: String,
+    val content: JsonNode,
     val accessedAt: LocalDateTime,
-)
-
-data class EpisodeImage(
-    val sequence: Int,
-    val url: String,
 )
