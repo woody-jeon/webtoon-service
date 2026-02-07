@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="da6ce281-b29f-424b-8ff2-0f24f90df948" name="변경" comment="init-3">
+      <change afterPath="$PROJECT_DIR$/API_README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/controller/episode/EpisodeContentController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/controller/episode/EpisodePurchaseController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/dto/response/EpisodeContentResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/dto/response/PurchaseResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/function/EpisodeAccessValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/function/EpisodeFinder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/model/Episode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/model/EpisodeContent.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/model/UserEpisodeAccess.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/model/repository/EpisodeRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/model/repository/UserEpisodeAccessRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/service/EpisodeContentService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/episode/service/EpisodePurchaseService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/purchase/model/Purchase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/purchase/model/repository/PurchaseRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/purchase/service/function/PurchaseCreator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/purchase/service/function/PurchaseFinder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/purchase/service/function/PurchaseValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/user/model/User.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/user/model/repository/UserRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/user/service/function/UserFinder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/core-enum/src/main/kotlin/com/lezhin/webtoonservice/core/enums/PurchaseStatus.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/episode/entity/EpisodeEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/episode/entity/UserEpisodeAccessEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/episode/repository/EpisodeEntityJpaRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/episode/repository/EpisodeEntityRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/episode/repository/UserEpisodeAccessEntityJpaRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/episode/repository/UserEpisodeAccessEntityRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/purchase/entity/PurchaseEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/purchase/repository/PurchaseEntityJpaRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/purchase/repository/PurchaseEntityRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/user/entity/UserEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/user/repository/UserEntityJpaRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/user/repository/UserEntityRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/CoreApiApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/CoreApiApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/controller/ApiControllerAdvice.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/controller/ApiControllerAdvice.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/support/error/ApiErrorCode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/support/error/ApiErrorCode.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/support/error/ApiErrorType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/core-api/src/main/kotlin/com/lezhin/webtoonservice/core/api/support/error/ApiErrorType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/support/error/DomainErrorType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/core/core-domain/src/main/kotlin/com/lezhin/webtoonservice/core/domain/support/error/DomainErrorType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/seed.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/episode.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/purchase.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/async-handler.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/error-handler.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/idempotency.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/access.repository.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/episode.repository.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/prisma.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/purchase.repository.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/user.repository.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/episode.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/purchase.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/config/CoreP6SpyConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core/config/CoreP6SpyConfig.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WEBTOON-SERVICE" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WEBTOON-SERVICE" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WEBTOON-SERVICE" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WEBTOON-SERVICE" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="formatting" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-8.14-bin/38aieal9i53h9rfe7vjup95b9/gradle-8.14" javaHome="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-21.0.7/Contents/Home" gradleVersion="8.14" />
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="396mfocXW91QWf5k6hqggqRcene" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.webtoon-service [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.webtoon-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.webtoon-service [ktlintFormat].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.webtoon-service 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CoreApiApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.CoreApiApplicationKt.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/woodyjeon/assignment/webtoon-service/build.gradle.kts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/woodyjeon/assignment/webtoon-service/src/main/kotlin/Main.kt&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.ktlint-plugin&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/woodyjeon/assignment/webtoon-service/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/storage/db-core/src/main/kotlin/com/lezhin/webtoonservice/storage/db/core" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.lezhin.webtoonservice.storage.db.core.episode.repository" />
+      <recent name="com.lezhin.webtoonservice.storage.db.core.purchase.entity" />
+      <recent name="com.lezhin.webtoonservice.storage.db.core.purchase.repository" />
+      <recent name="com.lezhin.webtoonservice.storage.db.core.user.repository" />
+      <recent name="com.lezhin.webtoonservice.core.domain.purchase.model.repository" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CoreApiApplication">
+    <configuration name="webtoon-service [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="webtoon-service [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="webtoon-service [ktlintFormat]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="ktlintFormat" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CoreApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="local" />
+      <module name="WEBTOON-SERVICE.core.core-api.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lezhin.webtoonservice.CoreApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.webtoon-service [build]" />
+      <item itemvalue="Gradle.webtoon-service [clean]" />
+      <item itemvalue="Gradle.webtoon-service [ktlintFormat]" />
+      <item itemvalue="Spring Boot.CoreApiApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.webtoon-service [build]" />
+        <item itemvalue="Gradle.webtoon-service [clean]" />
+        <item itemvalue="Gradle.webtoon-service [ktlintFormat]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="da6ce281-b29f-424b-8ff2-0f24f90df948" name="변경" comment="" />
+      <created>1770025000767</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770025000767</updated>
+      <workItem from="1770025001687" duration="2790000" />
+      <workItem from="1770027818778" duration="22409000" />
+      <workItem from="1770358082105" duration="1812000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1770032531827</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770032531827</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init-3">
+      <option name="closed" value="true" />
+      <created>1770118177529</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770118177529</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="init-1" />
+    <MESSAGE value="init-2" />
+    <MESSAGE value="init-3" />
+    <option name="LAST_COMMIT_MESSAGE" value="init-3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
