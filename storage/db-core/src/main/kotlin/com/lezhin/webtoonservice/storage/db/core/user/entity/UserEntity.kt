@@ -12,26 +12,15 @@ import java.math.BigDecimal
 @Table(name = "users")
 @Comment("사용자")
 class UserEntity(
-    @Column(nullable = false, precision = 12, scale = 2)
+    @Column(name = "coin", nullable = false, precision = 12, scale = 2)
     @Comment("잔액")
-    var balance: BigDecimal = BigDecimal.ZERO,
+    var coin: BigDecimal = BigDecimal.ZERO,
 ) : BaseEntity() {
     fun toDomain(): User =
         User(
             id = id,
-            balance = balance,
+            coin = coin,
             createdAt = createdAt,
             updatedAt = updatedAt,
         )
-
-    fun decrementBalance(amount: BigDecimal) {
-        this.balance = this.balance.subtract(amount)
-    }
-
-    companion object {
-        fun from(user: User): UserEntity =
-            UserEntity(
-                balance = user.balance,
-            )
-    }
 }

@@ -8,7 +8,11 @@ interface UserEpisodeAccessRepository {
         episodeId: Long,
     ): UserEpisodeAccess?
 
-    fun save(access: UserEpisodeAccess): UserEpisodeAccess
+    fun save(
+        userId: Long,
+        episodeId: Long,
+        purchaseId: Long,
+    )
 
     fun updateLastAccessedAt(
         userId: Long,

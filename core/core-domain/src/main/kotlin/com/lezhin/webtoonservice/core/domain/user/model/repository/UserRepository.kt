@@ -8,8 +8,8 @@ interface UserRepository {
 
     fun findByIdWithLock(id: Long): User?
 
-    fun decrementBalanceIfSufficient(
+    fun decrementCoin(
         userId: Long,
         amount: BigDecimal,
-    ): Boolean
+    )
 }

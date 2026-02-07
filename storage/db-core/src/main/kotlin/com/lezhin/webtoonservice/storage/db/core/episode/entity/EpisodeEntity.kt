@@ -1,5 +1,6 @@
 package com.lezhin.webtoonservice.storage.db.core.episode.entity
 
+import com.fasterxml.jackson.databind.JsonNode
 import com.lezhin.webtoonservice.core.domain.episode.model.Episode
 import com.lezhin.webtoonservice.storage.db.core.BaseEntity
 import jakarta.persistence.Column
@@ -7,6 +8,8 @@ import jakarta.persistence.Entity
 import jakarta.persistence.Index
 import jakarta.persistence.Table
 import org.hibernate.annotations.Comment
+import org.hibernate.annotations.JdbcTypeCode
+import org.hibernate.type.SqlTypes
 import java.math.BigDecimal
 
 @Entity
@@ -22,15 +25,19 @@ class EpisodeEntity(
     @Column(name = "episode_number", nullable = false)
     @Comment("회차 번호")
     val episodeNumber: Int,
-    @Column(nullable = false, length = 200)
+    @Column(name = "title", nullable = false, length = 200)
     @Comment("회차 제목")
     val title: String,
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name = "price", nullable = false, precision = 10, scale = 2)
     @Comment("가격")
     val price: BigDecimal,
-    @Column(name = "content_url")
-    @Comment("콘텐츠 URL")
-    val contentUrl: String? = null,
+    @Column(name = "thumbnail", nullable = false, length = 500)
+    @Comment("썸네일")
+    val thumbnail: String,
+    @Column(name = "content")
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Comment("콘텐츠")
+    val content: JsonNode,
     @Column(name = "is_available", nullable = false)
     @Comment("구매 가능 여부")
     val isAvailable: Boolean = true,
@@ -42,20 +49,10 @@ class EpisodeEntity(
             episodeNumber = episodeNumber,
             title = title,
             price = price,
-            contentUrl = contentUrl,
+            thumbnail = thumbnail,
+            content = content,
             isAvailable = isAvailable,
             createdAt = createdAt,
+            updatedAt = updatedAt,
         )
-
-    companion object {
-        fun from(episode: Episode): EpisodeEntity =
-            EpisodeEntity(
-                webtoonId = episode.webtoonId,
-                episodeNumber = episode.episodeNumber,
-                title = episode.title,
-                price = episode.price,
-                contentUrl = episode.contentUrl,
-                isAvailable = episode.isAvailable,
-            )
-    }
 }

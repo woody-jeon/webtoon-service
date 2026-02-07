@@ -12,23 +12,4 @@ data class UserEpisodeAccess(
     val lastAccessedAt: LocalDateTime?,
 ) {
     fun isExpired(): Boolean = expiresAt?.isBefore(LocalDateTime.now()) ?: false
-
-    fun isValid(): Boolean = !isExpired()
-
-    companion object {
-        fun create(
-            userId: Long,
-            episodeId: Long,
-            purchaseId: Long,
-        ): UserEpisodeAccess =
-            UserEpisodeAccess(
-                id = 0,
-                userId = userId,
-                episodeId = episodeId,
-                purchaseId = purchaseId,
-                grantedAt = LocalDateTime.now(),
-                expiresAt = null,
-                lastAccessedAt = null,
-            )
-    }
 }

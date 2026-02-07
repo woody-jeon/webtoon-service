@@ -1,5 +1,6 @@
 package com.lezhin.webtoonservice.core.domain.episode.model
 
+import com.fasterxml.jackson.databind.JsonNode
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
@@ -9,9 +10,11 @@ data class Episode(
     val episodeNumber: Int,
     val title: String,
     val price: BigDecimal,
-    val contentUrl: String?,
+    val thumbnail: String,
+    val content: JsonNode,
     val isAvailable: Boolean,
     val createdAt: LocalDateTime,
+    val updatedAt: LocalDateTime,
 ) {
     fun canBePurchased(): Boolean = isAvailable
 }

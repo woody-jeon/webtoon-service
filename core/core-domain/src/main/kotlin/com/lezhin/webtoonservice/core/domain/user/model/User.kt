@@ -5,9 +5,9 @@ import java.time.LocalDateTime
 
 data class User(
     val id: Long,
-    val balance: BigDecimal,
+    val coin: BigDecimal,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
 ) {
-    fun hasEnoughBalance(amount: BigDecimal): Boolean = balance >= amount
+    fun hasEnoughCoin(amount: BigDecimal): Boolean = coin >= amount
 }

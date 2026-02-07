@@ -40,13 +40,13 @@ class PurchaseEntity(
     @Column(name = "idempotency_expires_at", nullable = false)
     @Comment("멱등성 키 만료 시간")
     val idempotencyExpiresAt: LocalDateTime,
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name = "amount", nullable = false, precision = 10, scale = 2)
     @Comment("결제 금액")
     val amount: BigDecimal,
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @Column(name = "status", nullable = false, length = 20)
     @Comment("결제 상태")
-    val status: PurchaseStatus = PurchaseStatus.PENDING,
+    val status: PurchaseStatus,
     @Column(name = "completed_at")
     @Comment("완료 일시")
     val completedAt: LocalDateTime? = null,
@@ -63,17 +63,4 @@ class PurchaseEntity(
             createdAt = createdAt,
             completedAt = completedAt,
         )
-
-    companion object {
-        fun from(purchase: Purchase): PurchaseEntity =
-            PurchaseEntity(
-                userId = purchase.userId,
-                episodeId = purchase.episodeId,
-                idempotencyKey = purchase.idempotencyKey,
-                idempotencyExpiresAt = purchase.idempotencyExpiresAt,
-                amount = purchase.amount,
-                status = purchase.status,
-                completedAt = purchase.completedAt,
-            )
-    }
 }

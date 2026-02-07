@@ -31,7 +31,7 @@ class UserEpisodeAccessEntity(
     val purchaseId: Long,
     @Column(name = "granted_at", nullable = false)
     @Comment("권한 부여 일시")
-    val grantedAt: LocalDateTime = LocalDateTime.now(),
+    val grantedAt: LocalDateTime,
     @Column(name = "expires_at")
     @Comment("만료 일시")
     val expiresAt: LocalDateTime? = null,
@@ -39,6 +39,18 @@ class UserEpisodeAccessEntity(
     @Comment("마지막 접근 일시")
     var lastAccessedAt: LocalDateTime? = null,
 ) : BaseEntity() {
+    constructor(
+        userId: Long,
+        episodeId: Long,
+        purchaseId: Long,
+    ) : this(
+        userId = userId,
+        episodeId = episodeId,
+        purchaseId = purchaseId,
+        grantedAt = LocalDateTime.now(),
+        expiresAt = LocalDateTime.now().plusDays(7),
+    )
+
     fun toDomain(): UserEpisodeAccess =
         UserEpisodeAccess(
             id = id,
@@ -52,17 +64,5 @@ class UserEpisodeAccessEntity(
 
     fun updateLastAccessedAt() {
         this.lastAccessedAt = LocalDateTime.now()
-    }
-
-    companion object {
-        fun from(access: UserEpisodeAccess): UserEpisodeAccessEntity =
-            UserEpisodeAccessEntity(
-                userId = access.userId,
-                episodeId = access.episodeId,
-                purchaseId = access.purchaseId,
-                grantedAt = access.grantedAt,
-                expiresAt = access.expiresAt,
-                lastAccessedAt = access.lastAccessedAt,
-            )
     }
 }

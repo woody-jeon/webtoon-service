@@ -2,38 +2,27 @@ package com.lezhin.webtoonservice.storage.db.core.user.repository
 
 import com.lezhin.webtoonservice.core.domain.user.model.User
 import com.lezhin.webtoonservice.core.domain.user.model.repository.UserRepository
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Repository
+import org.springframework.transaction.annotation.Transactional
 import java.math.BigDecimal
 
 @Repository
+@Transactional
 class UserEntityRepository(
-    private val userEntityJpaRepository: UserEntityJpaRepository,
+    private val jpaRepository: UserEntityJpaRepository,
+    private val queryRepository: UserEntityQueryRepository,
 ) : UserRepository {
-    override fun findById(id: Long): User? {
-        return userEntityJpaRepository.findById(id)
-            .map { it.toDomain() }
-            .orElse(null)
-    }
+    @Transactional(readOnly = true)
+    override fun findById(id: Long): User? = jpaRepository.findByIdOrNull(id)?.toDomain()
 
-    override fun findByIdWithLock(id: Long): User? {
-        return userEntityJpaRepository.findWithLockById(id)
-            .map { it.toDomain() }
-            .orElse(null)
-    }
+    @Transactional(readOnly = true)
+    override fun findByIdWithLock(id: Long): User? = jpaRepository.findWithLockById(id)?.toDomain()
 
-    override fun decrementBalanceIfSufficient(
+    override fun decrementCoin(
         userId: Long,
         amount: BigDecimal,
-    ): Boolean {
-        val userEntity =
-            userEntityJpaRepository.findWithLockById(userId).orElse(null)
-                ?: return false
-
-        if (userEntity.balance < amount) {
-            return false
-        }
-
-        userEntity.decrementBalance(amount)
-        return true
+    ) {
+        jpaRepository.decrementCoin(userId, amount)
     }
 }
